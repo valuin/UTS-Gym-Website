@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramsfit - Locations</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        color: white;
+        height: 100%;
+      }
+      body {
+        background-image: url("public/bg.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      .logo img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+      }
+
+      nav a:hover {
+        color: rgb(37, 247, 138);
+        transition: 0.2s;
+        transform: translateY(-5px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <img src="public/icon.png" alt="Ramsfit logo" />
+          <nav>
+            <a href="homepage.html">Home</a>
+            <a href="aboutus.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="classes.html">Classes</a>
+            <a href="locations.html">Location</a>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <h1>LOCATIONS</h1>
+        <section class="locations-container">
+            <img src="Public/map.png" alt="">
+        </section>
+      </main>
+      <footer>
+        <h2>Contact Us</h2>
+        <div class="footer-content">
+          <p>Address: Jalan kebugaran</p>
+          <p>Phone: +62 812</p>
+          <p>Email: info@ramsfit.com</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
