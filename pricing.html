@@ -91,7 +91,6 @@
         padding: 20px 0;
       }
       .other-pillar:hover {
-        transform: scale(1.01);
         box-shadow: 0 0 40px rgb(38, 247, 139, 0.5);
         transition: 0.2s;
       }
@@ -125,10 +124,10 @@
         text-align: center;
         transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
         padding: 20px 20px;
+        transition: 0.3s;
       }
 
       .main-pillar:hover {
-        transform: scale(1.01);
         box-shadow: 0 0 20px rgba(38, 247, 139, 1);
         transition: 0.3s;
       }
@@ -157,9 +156,69 @@
 
       .footer-content {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
         line-height: 1px;
       }
+
+      .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input, form select {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
     </style>
   </head>
   <body>
@@ -218,5 +277,6 @@
         </div>
       </footer>
     </div>
+
   </body>
 </html>

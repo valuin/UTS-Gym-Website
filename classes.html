@@ -58,6 +58,141 @@
         transition: 0.2s;
         transform: translateY(-5px);
       }
+
+      .classes-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2px;
+        margin-top: 60px;
+      }
+
+      .class-card {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        background-color: #ffffff;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        transition: 0.2s;
+        overflow: hidden;
+        position: relative; /* Ensure the pseudo-element is positioned relative to the card */
+      }
+
+      .class-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        border-radius: 10px;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .class-card:hover {
+        box-shadow: 0 0 40px rgba(38, 247, 139, 0.3);
+        transition: 0.2s;
+      }
+
+      .class-card:hover .class-text {
+        color: rgb(37, 247, 138);
+        transition: 0.2s;
+      }
+
+      .class-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .class-text {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        z-index: 2;
+        flex-direction: column;
+        align-content: center;
+        margin-left: 5%;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 3;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        color: black;
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 20px;
+        width: 80%;
+        max-width: 500px;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      form input,
+      form select {
+        margin-bottom: 10px;
+        padding: 5px;
+      }
+
+      form button {
+        padding: 10px;
+        background-color: #26f78b;
+        color: black;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      form button:hover {
+        background-color: #1bbd69;
+        transition: 0.2s;
+      }
+
+      footer {
+        padding-top: 60px;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: row;
+        line-height: 1px;
+        justify-content: space-between;
+        gap: 20px;
+      }
     </style>
   </head>
   <body>
@@ -75,10 +210,48 @@
         </div>
       </header>
       <main>
-        <div>
-            <h1>Test</h1>
+        <h1>EXPLORE ALL CLASSES</h1>
+        <div class="classes-container">
+          <div class="class-card">
+            <img src="Public/yoga.png" alt="Yoga" loading="eager" />
+            <div class="class-text">
+              <h2>Yoga</h2>
+            </div>
+          </div>
+          <div class="class-card">
+            <img src="Public/zumba.png" alt="Zumba" loading="eager" />
+            <div class="class-text">
+              <h2>Zumba</h2>
+            </div>
+          </div>
+          <div class="class-card">
+            <img src="Public/pilates.png" alt="Pilates" loading="eager" />
+            <div class="class-text">
+              <h2>Pilates</h2>
+            </div>
+          </div>
         </div>
       </main>
+
+      <div id="registrationModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Register for <span id="class-text"></span></h2>
+          <form id="registrationForm">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <input type="email" id="email" placeholder="Your Email" required />
+            <input type="date" id="date" required />
+            <select id="time" required>
+              <option value="">Select Time</option>
+              <option value="9:00 AM">9:00 AM</option>
+              <option value="2:00 PM">2:00 PM</option>
+              <option value="6:00 PM">6:00 PM</option>
+            </select>
+            <button type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+
       <footer>
         <h2>Contact Us</h2>
         <div class="footer-content">
@@ -88,5 +261,45 @@
         </div>
       </footer>
     </div>
+
+    <script>
+      const modal = document.getElementById("registrationModal");
+      const classCards = document.querySelectorAll(".class-card");
+      const closeBtn = document.getElementsByClassName("close")[0];
+      const form = document.getElementById("registrationForm");
+      const classNameSpan = document.getElementById("class-text");
+
+      classCards.forEach((card) => {
+        card.addEventListener("click", function () {
+          const className = this.querySelector("h2").textContent;
+          classNameSpan.textContent = className;
+          modal.style.display = "block";
+        });
+      });
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      form.onsubmit = function (e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const className = classNameSpan.textContent;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+
+        window.location.href = `thankyou.html?name=${encodeURIComponent(
+          name
+        )}&class=${encodeURIComponent(className)}&date=${encodeURIComponent(
+          date
+        )}&time=${encodeURIComponent(time)}`;
+      };
+    </script>
   </body>
 </html>
