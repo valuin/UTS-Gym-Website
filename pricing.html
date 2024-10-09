@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pricing - RamsFit</title>
+    <title>Classes - RamsFit</title>
     <style>
       body,
       html {
@@ -26,12 +26,14 @@
         position: relative;
         z-index: 1;
       }
+
       header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 20px 0;
       }
+
       .logo {
         display: flex;
         align-items: center;
@@ -43,8 +45,9 @@
       }
 
       h1 {
-        font-size: 72px;
+        font-size: 48px;
         margin: 40px 0 10px;
+        text-align: center;
       }
 
       nav a {
@@ -57,6 +60,105 @@
         color: rgb(37, 247, 138);
         transition: 0.2s;
         transform: translateY(-5px);
+      }
+
+      main {
+        align-items: center;
+      }
+
+      .container-pillars {
+        align-content: center;
+        justify-content: center;
+        padding-top: 30px;
+        display: flex;
+      }
+
+      .other-pillar {
+        width: 275px;
+        height: 450px;
+        color: black;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        margin-top: 5%;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+        align-self: center;
+        text-align: center;
+        transition: 0.2s;
+        padding: 20px 0;
+      }
+      .other-pillar:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 40px rgb(38, 247, 139, 0.5);
+        transition: 0.2s;
+      }
+      .other-pillar h3 {
+        font-size: 20px;
+        margin-bottom: -10px;
+      }
+
+      .other-pillar h1 {
+        font-size: 40px;
+        text-align: center;
+        align-self: center;
+      }
+      .other-pillar p {
+        line-break: strict;
+        padding: 7px;
+        font-size: 14px;
+        font-weight: normal;
+      }
+
+      .main-pillar {
+        width: 325px;
+        height: 500px;
+        color: black;
+        background: linear-gradient(to bottom, #25f78a, white);
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        align-self: center;
+        text-align: center;
+        transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        padding: 20px 20px;
+      }
+
+      .main-pillar:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 20px rgba(38, 247, 139, 1);
+        transition: 0.3s;
+      }
+
+      .main-pillar h3 {
+        font-size: 20px;
+        margin-bottom: -10px;
+      }
+
+      .main-pillar h1 {
+        font-size: 40px;
+        text-align: center;
+        align-self: center;
+      }
+      .main-pillar p {
+        line-break: strict;
+        font-weight: bold;
+        padding: 7px;
+        font-size: 18px;
+        font-weight: normal;
+      }
+
+      footer {
+        padding-top: 60px;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        line-height: 1px;
       }
     </style>
   </head>
@@ -75,8 +177,36 @@
         </div>
       </header>
       <main>
-        <div>
-            <h1>Test</h1>
+        <h1>HIGH GAINS WITHOUT THE HIGH PRICE</h1>
+        <div class="container-pillars">
+          <div class="other-pillar">
+            <h3>Daily</h3>
+            <h1>35k / Day</h1>
+            <p>Full-day access to all gym facilities</p>
+            <p>Access to group fitness classes (Yoga, Zumba, etc.)</p>
+            <p>Locker room and shower access</p>
+          </div>
+          <div class="main-pillar">
+            <h3>Annual</h3>
+            <h1>2.8 Mio / Year</h1>
+            <h4>
+              All monthly benefits, plus FREE personal training session every
+              month
+            </h4>
+            <h4>Exclusive access to members-only events and workshops</h4>
+            <h4>Priority booking for classes and training sessions</h4>
+            <h4>
+              15% discount on all in-gym purchases (supplements, gear, etc.)
+            </h4>
+          </div>
+          <div class="other-pillar">
+            <h3>Monthly</h3>
+            <h1>300k / Month</h1>
+            <p>Unlimited access to gym facilities and classes</p>
+            <p>Free fitness assessment and consultation with a trainer</p>
+            <p>Access to all gym amenities (locker rooms, showers, sauna)</p>
+            <p>10% discount on personal training sessions</p>
+          </div>
         </div>
       </main>
       <footer>
