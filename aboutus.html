@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ramsfit - About</title>
     <style>
-        body,
+      body,
       html {
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
         color: white;
         height: 100%;
+        scroll-behavior: smooth;
       }
       body {
         background-image: url("public/bg.png");
@@ -43,12 +44,19 @@
       }
       nav a {
         color: white;
+        padding: 10px;
+        border-radius: 10px;
         text-decoration: none;
         margin-left: 20px;
+        transition: 0.3s;
       }
+
       nav a:hover {
         color: rgb(37, 247, 138);
-        transition: 0.2s;
+        background-color: rgba(36, 249, 143, 0.05);
+        border-radius: 10px;
+        padding: 10px;
+        transition: 0.3s;
         transform: translateY(-5px);
       }
       h1 {
@@ -62,72 +70,89 @@
         margin-bottom: 20px;
         text-align: center;
         font-style: bold;
-    }
-    .maincontent {
+      }
+
+      main {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .maincontent {
         display: flex;
         width: 100%;
         max-width: 2000px;
         overflow: hidden;
-    }
-    .image-left {
+        flex-wrap: nowrap;
+      }
+      .image-left {
         width: 35%;
         overflow: hidden;
         border-top-right-radius: 10%;
-    }
-    .image-left img {
+        border-bottom-right-radius: 10%;
+        order: 1; /* Ensure it's always first */
+      }
+      .image-left img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-    }
-    .image-right {
+      }
+      .image-right {
         width: 35%;
         overflow: hidden;
+        border-top-left-radius: 10%;
         border-bottom-left-radius: 10%;
-    }
-    .image-right img {
+        order: 3; /* Ensure it's always last */
+      }
+      .image-right img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-    }
-    .content {
+      }
+      .content {
         width: 30%;
         padding: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-    }
-    .content h1 {
+        order: 2; /* Ensure it's always in the middle */
+      }
+      .content h1 {
         font-size: 32px;
         margin-bottom: 20px;
         margin-top: 10px;
-    }
-    .content p {
-        font-size: 20px;
+      }
+      .content p {
+        font-size: 16px;
         line-height: 1.5;
         text-align: justify;
         margin-bottom: 20px;
-    }
-    .content button {
-        padding: 10px 20px;
-        background-color: #fff;
-        font-style: bold;
-        font-size: 16px;
-        color: #000;
-        border: none;
+      }
+      .cta-button {
+        display: inline-block;
+        background-color: white;
+        color: black;
+        padding: 10px 10px;
+        text-decoration: none;
+        text-align: center;
         border-radius: 5px;
-        cursor: pointer;
-    }
-    .content button:hover {
+        font-weight: bold;
+        transition: 0.2s;
+      }
+
+      .cta-button:hover {
         background-color: rgb(37, 247, 138);
-    }
-    .testimonials {
+        transform: translateY(-3px);
+        box-shadow: 0 0 10px rgba(1, 255, 1, 0.5);
+        transition: 0.2s;
+      }
+      .testimonials {
         display: flex;
         flex-direction: column;
         margin: 20px;
         margin-left: 0;
-    }
-    .testimonial {
-        background-color: darkslategray;
+      }
+      .testimonial {
+        background-color: rgb(37, 247, 138);
         border-radius: 10px;
         padding: 20px;
         display: flex;
@@ -136,131 +161,151 @@
         width: 1200px;
         height: auto;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
-    .testimonial img {
+        transition: 0.3s;
+      }
+
+      .testimonial:hover {
+        box-shadow: 0 0 20px rgba(37, 247, 138, 0.8);
+        transition: 0.3s;
+      }
+
+      .testimonial img {
         border-radius: 5px;
         width: 10%;
         height: auto;
         margin-right: 20px;
-    }
-    .testimonial-content {
+      }
+      .testimonial-content {
         display: flex;
         flex-direction: column;
-    }
-    .quote {
+        transition: 0.2s;
+      }
+
+      .quote {
+        color: #101010;
         font-size: 16px;
         line-height: 1.5;
         margin-bottom: 10px;
-        color: whitesmoke;
-    }
-    .author {
+      }
+      .author {
+        color: #101010;
         font-weight: bold;
         margin-top: 10px;
-        color: whitesmoke;
-    }
-    .position {
+      }
+      .position {
+        color: #101010;
         font-style: italic;
-        color: whitesmoke;
-    }
-    footer{
+      }
+      footer {
         padding-top: 60px;
+      }
+
+      .footer-content {
         display: flex;
-        flex-direction: column;
-    }
-    .footer-content {
-        display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
         line-height: 1px;
-    }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <div class="logo">
-              <img src="public/icon.png" alt="Ramsfit logo" />
-              <nav>
-                <a href="homepage.html">Home</a>
-                <a href="aboutus.html">About</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="classes.html">Classes</a>
-                <a href="locations.html">Location</a>
-              </nav>
-            </div>
-          </header>
-          <main>
-            <h1>#1 IN TOWN</h1>
+      <header>
+        <div class="logo">
+          <img src="public/icon.png" alt="Ramsfit logo" />
+          <nav>
+            <a href="homepage.html">Home</a>
+            <a href="aboutus.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="classes.html">Classes</a>
+            <a href="locations.html">Location</a>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <h1>#1 IN TOWN</h1>
+      </main>
     </div>
-        <div class="maincontent">
-            <div class="image-left">
-                <img src="public/ContentPhoto1.png" alt="Ramfit Image">
+    <div class="maincontent">
+      <div class="image-left">
+        <img src="public/ContentPhoto1.png" alt="Ramfit Image" />
+      </div>
+      <div class="content">
+        <h1>At RamsFit, We Are Committed...</h1>
+        <p>
+          We are empowering individuals to achieve their fitness goals through a
+          supportive and inclusive environment. With state-of-the-art equipment,
+          personalized training programs, and expert instructors, we strive to
+          cater to all levels of fitness, from beginners to seasoned athletes.
+        </p>
+        <a href="#testimonials" class="cta-button">View More</a>
+      </div>
+      <div class="image-right">
+        <img src="public/ContentPhoto2.png" alt="Ramfit Image" />
+      </div>
+    </div>
+    <div class="container">
+      <h2>WHAT THEY SAID ABOUT US</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <img src="public/ReviewPhoto1.png" alt="Lala Martinez" />
+          <div id="testimonials" class="testimonial-content">
+            <div class="quote">
+              "This gym has everything I need for a great workout. The equipment
+              is modern and well-maintained, and the staff are always friendly
+              and helpful. The cleanliness of the facility is also impressive,
+              making it a comfortable place to exercise. Highly recommended!"
             </div>
-            <div class="content">
-                <h1>At RamsFit, We Are Committed...</h1>
-                <p>We are empowering individuals to achieve their fitness goals through a supportive and inclusive environment. 
-                    With state-of-the-art equipment, personalized training programs, and expert instructors, we strive to cater 
-                    to all levels of fitness, from beginners to seasoned athletes.
-                </p>
-                <button>View More</button>
-            </div>
-            <div class="image-right">
-                    <img src="public/ContentPhoto2.png" alt="Ramfit Image">
-            </div>
+            <div class="author">Lala Martinez</div>
+            <div class="position">Student</div>
+          </div>
         </div>
-        <div class="container">
-            <h2>WHAT THEY SAID ABOUT US</h2>
-            <div class="testimonials">
-                <div class="testimonial">
-                    <img src="public/ReviewPhoto1.png" alt="Lala Martinez">
-                    <div class="testimonial-content">
-                        <div class="quote">
-                            "This gym has everything I need for a great workout. The equipment is modern and well-maintained, and the staff are always friendly and helpful. The cleanliness of the facility is also impressive, making it a comfortable place to exercise. Highly recommended!"
-                        </div>
-                        <div class="author">Lala Martinez</div>
-                        <div class="position">Student</div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <img src="public/ReviewPhoto2.png" alt="Stevan Carpenter">
-                    <div class="testimonial-content">
-                        <div class="quote">
-                            "Fantastic place to work out. The atmosphere is motivating, and the classes are fun!"
-                        </div>
-                        <div class="author">Stevan Carpenter</div>
-                        <div class="position">Engineer</div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <img src="public/ReviewPhoto3.png" alt="Josef Mehmed">
-                    <div class="testimonial-content">
-                        <div class="quote">
-                            "The atmosphere at this gym is fantastic. It’s a friendly and motivating environment, and I feel comfortable working out here. Whether you're a beginner or experienced, you’ll find a supportive community that encourages you to meet your fitness goals."
-                        </div>
-                        <div class="author">Josef Mehmed</div>
-                        <div class="position">Teacher</div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <img src="public/ReviewPhoto4.png" alt="Julia Rodrigo">
-                    <div class="testimonial-content">
-                        <div class="quote">
-                            "Love this gym! Clean, spacious, and the staff is super friendly."
-                        </div>
-                        <div class="author">Julia Rodrigo</div>
-                        <div class="position">Pharmacist</div>
-                    </div>
-                </div>
+        <div class="testimonial">
+          <img src="public/ReviewPhoto2.png" alt="Stevan Carpenter" />
+          <div class="testimonial-content">
+            <div class="quote">
+              "Fantastic place to work out. The atmosphere is motivating, and
+              the classes are fun!"
             </div>
+            <div class="author">Stevan Carpenter</div>
+            <div class="position">Engineer</div>
+          </div>
         </div>
-        <div class="container">
-            <footer>
-                <h3>Contact Us</h3>
-                <div class="footer-content">
-                <p>Address: Jalan kebugaran</p>
-                <p>Phone: +62 8129897767</p>
-                <p>Email: info@ramsfit.com</p>
-                </div>
-            </footer>
+        <div class="testimonial">
+          <img src="public/ReviewPhoto3.png" alt="Josef Mehmed" />
+          <div class="testimonial-content">
+            <div class="quote">
+              "The atmosphere at this gym is fantastic. It’s a friendly and
+              motivating environment, and I feel comfortable working out here.
+              Whether you're a beginner or experienced, you’ll find a supportive
+              community that encourages you to meet your fitness goals."
+            </div>
+            <div class="author">Josef Mehmed</div>
+            <div class="position">Teacher</div>
+          </div>
         </div>
-</body>
+        <div class="testimonial">
+          <img src="public/ReviewPhoto4.png" alt="Julia Rodrigo" />
+          <div class="testimonial-content">
+            <div class="quote">
+              "Love this gym! Clean, spacious, and the staff is super friendly."
+            </div>
+            <div class="author">Julia Rodrigo</div>
+            <div class="position">Pharmacist</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <footer>
+        <h3>Contact Us</h3>
+        <div class="footer-content">
+          <p>Address: Jalan kebugaran</p>
+          <p>Phone: +62 8129897767</p>
+          <p>Email: info@ramsfit.com</p>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>

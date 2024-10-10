@@ -49,16 +49,21 @@
 
       nav a {
         color: white;
+        padding: 10px;
+        border-radius: 10px;
         text-decoration: none;
         margin-left: 20px;
+        transition: 0.3s;
       }
 
       nav a:hover {
         color: rgb(37, 247, 138);
-        transition: 0.2s;
+        background-color: rgba(36, 249, 143, 0.05);
+        border-radius: 10px;
+        padding: 10px;
+        transition: 0.3s;
         transform: translateY(-5px);
       }
-
 
       .thank-you-container {
         margin-bottom: 50px;
@@ -68,23 +73,35 @@
         margin-bottom: 50px;
       }
 
-      .thank-you-container a {
-        font-weight: bold;
-        background-color: rgb(255, 255, 255);
-        margin-top: 20px;
-        padding: 15px 20px;
-        border-radius: 15px;
+      .cta-button {
+        display: inline-block;
+        background-color: white;
         color: black;
+        padding: 10px 20px;
         text-decoration: none;
-        transition: transform 0.2s, background-color 0.2s, color 0.2s; /* Ensure transition is applied to transform */
-      }
-
-      .thank-you-container a:hover {    
-        background-color: rgb(37, 247, 138);
-        color: black;
+        border-radius: 5px;
+        font-weight: bold;
         transition: 0.2s;
       }
 
+      .cta-button:hover {
+        background-color: rgb(37, 247, 138);
+        transform: translateY(-3px);
+        box-shadow: 0 0 10px rgba(1, 255, 1, 0.5);
+        transition: 0.2s;
+      }
+
+      footer {
+        padding-top: 60px;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+        line-height: 1px;
+      }
     </style>
   </head>
   <body>
@@ -105,14 +122,14 @@
         <div class="thank-you-container">
           <h1>Thank You for Registering!</h1>
           <p id="confirmationMessage"></p>
-          <a href="classes.html">Back to Classes</a>
+          <a href="classes.html" class="cta-button">Back to Classes</a>
         </div>
       </main>
       <footer>
         <h2>Contact Us</h2>
         <div class="footer-content">
           <p>Address: Jalan kebugaran</p>
-          <p>Phone: +62 812</p>
+          <p>Phone: +62 8129897767</p>
           <p>Email: info@ramsfit.com</p>
         </div>
       </footer>
